@@ -6,16 +6,17 @@
 const ColorManager = {
     // Dynamic Tag Colors Pool
     tagPalette: [
-        { bg: '#fee2e2', text: '#b91c1c', border: '#fca5a5' }, // 1. Red
-        { bg: '#dcfce7', text: '#15803d', border: '#86efac' }, // 2. Green
-        { bg: '#dbeafe', text: '#1d4ed8', border: '#93c5fd' }, // 3. Blue
-        { bg: '#ffedd5', text: '#c2410c', border: '#fdba74' }, // 4. Orange
-        { bg: '#f3e8ff', text: '#7e22ce', border: '#d8b4fe' }, // 5. Purple
-        { bg: '#fef9c3', text: '#a16207', border: '#fde047' }, // 6. Yellow
-        { bg: '#fce7f3', text: '#be185d', border: '#f9a8d4' }, // 7. Pink
-        { bg: '#cffafe', text: '#0f766e', border: '#67e8f9' }, // 8. Cyan
-        { bg: '#f5ebe0', text: '#78350f', border: '#e3d5ca' }, // 9. Brown
-        { bg: '#f1f5f9', text: '#334155', border: '#cbd5e1' }  // 10. Slate (Grey)
+        { bg: '#fef2f2', text: '#b91c1c', border: '#fca5a5' }, // 1. Đỏ (Red)
+        { bg: '#fff7ed', text: '#c2410c', border: '#fdba74' }, // 2. Cam (Orange)
+        { bg: '#fefce8', text: '#a16207', border: '#fde047' }, // 3. Vàng (Yellow)
+        { bg: '#f0fdf4', text: '#15803d', border: '#86efac' }, // 4. Green
+        { bg: '#f7fee7', text: '#4d7c0f', border: '#bef264' }, // 5. Lime
+        { bg: '#eef2ff', text: '#4338ca', border: '#c7d2fe' }, // 6. Xanh navy (Indigo)
+        { bg: '#f0f9ff', text: '#0369a1', border: '#7dd3fc' }, // 7. Xanh da trời (Sky)
+        { bg: '#f8fafc', text: '#334155', border: '#cbd5e1' }, // 8. Xám (Slate)
+        { bg: '#faf5ff', text: '#7e22ce', border: '#d8b4fe' }, // 9. Tím (Purple)
+        { bg: '#fdf2f8', text: '#be185d', border: '#f9a8d4' }, // 10. Hồng (Pink)
+        { bg: '#fff5f0', text: '#c05621', border: '#ffcbb3' }  // 11. Đào (Peach)
     ],
     
     dynamicTagMap: {},
@@ -24,16 +25,17 @@ const ColorManager = {
 
     // 10 Text Colors cho danh sách Nhân sự chạy tự động
     personPalette: [
-        '#d32f2f', // 1. Red
-        '#1976d2', // 2. Blue
-        '#388e3c', // 3. Green
-        '#7b1fa2', // 4. Purple
-        '#f57c00', // 5. Orange
-        '#00796b', // 6. Teal / Cyan
-        '#5d4037', // 7. Brown
-        '#c2185b', // 8. Pink
-        '#afb42b', // 9. Olive / Lime
-        '#455a64'  // 10. Blue Grey
+        '#7f1d1d', // 1. Đỏ (Red)
+        '#7c2d12', // 2. Cam (Orange)
+        '#713f12', // 3. Vàng (Yellow)
+        '#14532d', // 4. Green
+        '#365314', // 5. Lime
+        '#312e81', // 6. Xanh navy (Indigo)
+        '#0c4a6e', // 7. Xanh da trời (Sky)
+        '#0f172a', // 8. Xám (Slate)
+        '#581c87', // 9. Tím (Purple)
+        '#831843', // 10. Hồng (Pink)
+        '#7b341e'  // 11. Đào (Peach)
     ],
 
     // Lấy màu cho Tag đầu tiên tìm thấy
