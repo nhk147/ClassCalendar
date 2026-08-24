@@ -1,0 +1,224 @@
+/* ==========================================
+   CALENDAR.CSS - Grid & Events
+   ========================================== */
+
+/* Calendar Wrapper */
+.calendar-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--bg-surface);
+    position: relative;
+}
+
+.view-layer {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ------------------------------------------
+   MONTH VIEW
+   ------------------------------------------ */
+.calendar-header-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-surface);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+.day-label {
+    padding: 12px 0;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-right: 1px solid var(--border-color);
+}
+.day-label:last-child { border-right: none; }
+
+.calendar-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.calendar-week {
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    min-height: 120px;
+}
+
+.week-bg-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day-cell {
+    border-right: 1px solid var(--border-color);
+    padding: 8px;
+    transition: background-color 0.2s ease;
+}
+.day-cell:last-child { border-right: none; }
+
+.day-number {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.day-cell.is-today .day-number {
+    background-color: var(--primary-color);
+    color: white;
+}
+.day-cell.not-current-month .day-number {
+    color: var(--text-muted);
+}
+.day-cell:hover { background-color: var(--bg-primary); }
+
+.week-events-layer {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none; 
+}
+
+/* Event Span (Month View) */
+.event-span {
+    position: absolute;
+    height: auto;
+    min-height: 52px;
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    pointer-events: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-size: 0.75rem;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s, z-index 0.2s;
+    margin-left: 3px;
+}
+.event-span:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+    z-index: 5;
+    filter: brightness(0.97);
+}
+
+.event-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    width: 100%;
+    white-space: normal;
+}
+.event-line {
+    width: 100%;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.event-title {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+}
+.text-xs { font-size: 0.7rem; opacity: 0.9; line-height: 1.3; }
+
+
+/* ------------------------------------------
+   WEEK VIEW
+   ------------------------------------------ */
+.week-view-container {
+    display: flex;
+    height: 100%;
+}
+.week-day-col {
+    flex: 1;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+.week-day-col:last-child { border-right: none; }
+.week-day-events::-webkit-scrollbar { width: 4px; }
+.week-day-events::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 4px; }
+.event-span-week:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.97);
+}
+
+
+/* ------------------------------------------
+   AGENDA VIEW
+   ------------------------------------------ */
+.agenda-view-container {
+    padding: 24px;
+    overflow-y: auto;
+}
+.agenda-item {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.agenda-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    background-color: var(--bg-primary);
+}
+
+
+/* Skeleton Loading */
+.skeleton-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+}
+.skeleton-row {
+    height: 100px;
+    background: linear-gradient(90deg, var(--bg-primary) 25%, var(--border-color) 50%, var(--bg-primary) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: var(--radius-md);
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Toggle Detail View */
+.app-container:not(.is-detail-view) .view-detail {
+    display: none;
+}
+.app-container:not(.is-detail-view) .view-overview {
+    display: block;
+}
+
+.app-container.is-detail-view .view-overview {
+    display: none;
+}
+.app-container.is-detail-view .view-detail {
+    display: block;
+}

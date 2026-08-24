@@ -1,0 +1,109 @@
+/* ==========================================
+   RESPONSIVE.CSS
+   ========================================== */
+
+/* Tablet (Dưới 1024px) */
+@media (max-width: 1024px) {
+    .app-header {
+        padding: 0 16px;
+    }
+    
+    .app-toolbar {
+        padding: 0 16px;
+        flex-wrap: wrap;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 12px;
+    }
+
+    #search-input {
+        width: 180px;
+    }
+    #search-input:focus {
+        width: 220px;
+    }
+}
+
+/* Mobile (Dưới 768px) */
+@media (max-width: 768px) {
+    .logo-container h1 {
+        display: none; /* Ẩn chữ trên mobile */
+    }
+
+    .toolbar-left, .toolbar-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .date-navigation h2 {
+        font-size: 1rem;
+        min-width: 120px;
+    }
+
+    .search-container {
+        display: none; /* Có thể ẩn search bar trên mobile hoặc đưa vào menu riêng */
+    }
+
+    .view-switcher {
+        display: none; /* Ép về Agenda view bằng JS sau */
+    }
+
+    /* Grid biến thành list đơn giản trên mobile */
+    .calendar-header-days {
+        display: none;
+    }
+
+    .calendar-week {
+        display: flex;
+        flex-direction: column;
+        height: auto !important;
+        border: none;
+    }
+
+    .week-bg-grid {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: none;
+    }
+
+    .day-cell {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        min-height: 60px;
+    }
+    
+    .day-number {
+        margin: 0;
+    }
+
+    .week-events-layer {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 0 16px;
+    }
+
+    .event-span {
+        position: relative !important;
+        width: 100% !important;
+        left: 0 !important;
+        top: 0 !important;
+        margin-bottom: 8px;
+        height: auto;
+        padding: 8px 12px;
+        white-space: normal;
+    }
+    
+    .event-content {
+        white-space: normal;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
