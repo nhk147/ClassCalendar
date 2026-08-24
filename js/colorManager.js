@@ -6,16 +6,16 @@
 const ColorManager = {
     // Dynamic Tag Colors Pool
     tagPalette: [
-        { bg: '#eff6ff', text: '#2563eb', border: '#bfdbfe' }, // Blue
-        { bg: '#f0fdf4', text: '#16a34a', border: '#bbf7d0' }, // Green
-        { bg: '#fff7ed', text: '#ea580c', border: '#fed7aa' }, // Orange
-        { bg: '#fef2f2', text: '#dc2626', border: '#fecaca' }, // Red
-        { bg: '#faf5ff', text: '#9333ea', border: '#e9d5ff' }, // Purple
-        { bg: '#f8fafc', text: '#475569', border: '#cbd5e1' }, // Grey
-        { bg: '#fdf2f8', text: '#db2777', border: '#fbcfe8' }, // Pink
-        { bg: '#f0f9ff', text: '#0284c7', border: '#bae6fd' }, // Light Blue
-        { bg: '#fefce8', text: '#ca8a04', border: '#fef08a' }, // Yellow
-        { bg: '#f0fdfa', text: '#0d9488', border: '#99f6e4' }  // Teal
+        { bg: '#fee2e2', text: '#b91c1c', border: '#fca5a5' }, // 1. Red
+        { bg: '#dcfce7', text: '#15803d', border: '#86efac' }, // 2. Green
+        { bg: '#dbeafe', text: '#1d4ed8', border: '#93c5fd' }, // 3. Blue
+        { bg: '#ffedd5', text: '#c2410c', border: '#fdba74' }, // 4. Orange
+        { bg: '#f3e8ff', text: '#7e22ce', border: '#d8b4fe' }, // 5. Purple
+        { bg: '#fef9c3', text: '#a16207', border: '#fde047' }, // 6. Yellow
+        { bg: '#fce7f3', text: '#be185d', border: '#f9a8d4' }, // 7. Pink
+        { bg: '#cffafe', text: '#0f766e', border: '#67e8f9' }, // 8. Cyan
+        { bg: '#f5ebe0', text: '#78350f', border: '#e3d5ca' }, // 9. Brown
+        { bg: '#f1f5f9', text: '#334155', border: '#cbd5e1' }  // 10. Slate (Grey)
     ],
     
     dynamicTagMap: {},
@@ -24,16 +24,16 @@ const ColorManager = {
 
     // 10 Text Colors cho danh sách Nhân sự chạy tự động
     personPalette: [
-        '#C62828', // Red
-        '#1565C0', // Blue
-        '#2E7D32', // Green
-        '#6A1B9A', // Purple
-        '#EF6C00', // Orange
-        '#00695C', // Teal
-        '#4E342E', // Brown
-        '#0277BD', // Light Blue
-        '#D84315', // Deep Orange
-        '#4527A0'  // Deep Purple
+        '#d32f2f', // 1. Red
+        '#1976d2', // 2. Blue
+        '#388e3c', // 3. Green
+        '#7b1fa2', // 4. Purple
+        '#f57c00', // 5. Orange
+        '#00796b', // 6. Teal / Cyan
+        '#5d4037', // 7. Brown
+        '#c2185b', // 8. Pink
+        '#afb42b', // 9. Olive / Lime
+        '#455a64'  // 10. Blue Grey
     ],
 
     // Lấy màu cho Tag đầu tiên tìm thấy
