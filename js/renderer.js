@@ -102,13 +102,13 @@ const Renderer = {
                         <!-- Overview View -->
                         <div class="view-overview">
                             <div class="event-line event-title">${iconsHtml} ${event.title}${overviewLoc}</div>
-                            ${line2 ? `<div class="event-line text-xs">${line2}</div>` : ''}
+                            ${event.showDetails !== false && line2 ? `<div class="event-line text-xs">${line2}</div>` : ''}
                         </div>
                         <!-- Detail View -->
                         <div class="view-detail">
                             <div class="event-line event-title">${iconsHtml} ${event.title}${detailLocation}</div>
-                            ${detailLine2 ? `<div class="event-line text-xs">${detailLine2}</div>` : ''}
-                            ${detailLine3 ? `<div class="event-line text-xs">${detailLine3}</div>` : ''}
+                            ${event.showDetails !== false && detailLine2 ? `<div class="event-line text-xs">${detailLine2}</div>` : ''}
+                            ${event.showDetails !== false && detailLine3 ? `<div class="event-line text-xs">${detailLine3}</div>` : ''}
                         </div>
                     </div>
                 </div>`;

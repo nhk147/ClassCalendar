@@ -27,6 +27,7 @@ const LayoutEngine = {
 
             return {
                 ...e,
+                originalEvent: e,
                 renderStart,
                 renderEnd,
                 span,

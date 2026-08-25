@@ -40,6 +40,7 @@ const Calendar = {
         const grid = window.DateUtils.getMonthGrid(Calendar.currentYear, Calendar.currentMonth);
         
         const monthModel = [];
+        const eventChunks = new Map(); // originalEvent -> array of chunks { weekIdx, span, chunk }
 
         // Duyệt từng tuần (mỗi tuần 7 ngày)
         for (let weekIdx = 0; weekIdx < 6; weekIdx++) {
@@ -48,6 +49,13 @@ const Calendar = {
 
             // Xếp sự kiện cho tuần này
             const layoutedEvents = window.LayoutEngine.computeWeekLayout(filteredEvents, weekStart, weekEnd);
+            
+            layoutedEvents.forEach(chunk => {
+                if (!eventChunks.has(chunk.originalEvent)) {
+                    eventChunks.set(chunk.originalEvent, []);
+                }
+                eventChunks.get(chunk.originalEvent).push({ weekIdx, span: chunk.span, chunk });
+            });
 
             const weekData = {
                 days: grid.slice(weekIdx * 7, weekIdx * 7 + 7),
@@ -57,6 +65,22 @@ const Calendar = {
 
             monthModel.push(weekData);
         }
+
+        // Đánh dấu chunk nào sẽ hiển thị chi tiết (chunk dài nhất, ưu tiên tuần đầu nếu bằng nhau)
+        eventChunks.forEach((chunks, originalEvent) => {
+            let maxSpan = -1;
+            let bestChunk = null;
+            chunks.forEach(c => {
+                if (c.span > maxSpan) {
+                    maxSpan = c.span;
+                    bestChunk = c.chunk;
+                }
+            });
+            
+            chunks.forEach(c => {
+                c.chunk.showDetails = (c.chunk === bestChunk);
+            });
+        });
 
         return monthModel;
     }
