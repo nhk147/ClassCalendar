@@ -6,17 +6,17 @@
 const ColorManager = {
     // Dynamic Tag Colors Pool
     tagPalette: [
-        { bg: '#FEE2E2', text: '#B91C1C', border: '#FCA5A5' }, // 1. Đỏ
-        { bg: '#FFEDD5', text: '#C2410C', border: '#FDBA74' }, // 2. Cam
-        { bg: '#FEF3C7', text: '#A16207', border: '#FCD34D' }, // 3. Vàng
-        { bg: '#DCFCE7', text: '#15803D', border: '#86EFAC' }, // 4. Xanh lá
-        { bg: '#CCFBF1', text: '#0F766E', border: '#5EEAD4' }, // 5. Xanh ngọc
-        { bg: '#DBEAFE', text: '#1D4ED8', border: '#93C5FD' }, // 6. Xanh dương
-        { bg: '#E0E7FF', text: '#4338CA', border: '#A5B4FC' }, // 7. Chàm
-        { bg: '#F3E8FF', text: '#7E22CE', border: '#D8B4FE' }, // 8. Tím
-        { bg: '#FCE7F3', text: '#BE185D', border: '#F9A8D4' }, // 9. Hồng
-        { bg: '#F5E9DD', text: '#8B5E34', border: '#D6B99A' }, // 10. Nâu đất
-        { bg: '#F1F5F9', text: '#334155', border: '#CBD5E1' }  // 11. Xám
+        { bg: '#FECACA', text: '#B91C1C', border: '#F87171' }, // 1. Đỏ (Red 200/400)
+        { bg: '#FED7AA', text: '#C2410C', border: '#FB923C' }, // 2. Cam (Orange 200/400)
+        { bg: '#FDE68A', text: '#A16207', border: '#FBBF24' }, // 3. Vàng (Amber 200/400)
+        { bg: '#BBF7D0', text: '#15803D', border: '#4ADE80' }, // 4. Xanh lá (Green 200/400)
+        { bg: '#99F6E4', text: '#0F766E', border: '#2DD4BF' }, // 5. Xanh ngọc (Teal 200/400)
+        { bg: '#BFDBFE', text: '#1D4ED8', border: '#60A5FA' }, // 6. Xanh dương (Blue 200/400)
+        { bg: '#C7D2FE', text: '#4338CA', border: '#818CF8' }, // 7. Chàm (Indigo 200/400)
+        { bg: '#E9D5FF', text: '#7E22CE', border: '#C084FC' }, // 8. Tím (Purple 200/400)
+        { bg: '#FBCFE8', text: '#BE185D', border: '#F472B6' }, // 9. Hồng (Pink 200/400)
+        { bg: '#E6D5C3', text: '#8B5E34', border: '#C6A482' }, // 10. Nâu đất (Saturated)
+        { bg: '#E2E8F0', text: '#334155', border: '#94A3B8' }  // 11. Xám (Slate 200/400)
     ],
 
     dynamicTagMap: {},
