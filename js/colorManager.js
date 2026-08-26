@@ -21,6 +21,8 @@ const ColorManager = {
 
     dynamicTagMap: {},
     dynamicPersonMap: {},
+    tagColorIndex: 0,
+    personColorIndex: 0,
 
     // Text colors cho danh sách Nhân sự chạy tự động
     personPalette: [
@@ -39,15 +41,15 @@ const ColorManager = {
 
     // Lấy màu cho Tag đầu tiên tìm thấy
     getColorForTags: (tags) => {
-        if (!tags || tags.length === 0) return ColorManager.tagPalette[5]; // Grey
+        if (!tags || tags.length === 0) return ColorManager.tagPalette[10]; // Grey
 
         const firstTag = tags[0].trim();
         const tagLower = firstTag.toLowerCase();
 
         if (!ColorManager.dynamicTagMap[tagLower]) {
-            const hashVal = window.Hash ? window.Hash.hashString(tagLower) : tagLower.length;
-            const index = hashVal % ColorManager.tagPalette.length;
+            const index = ColorManager.tagColorIndex % ColorManager.tagPalette.length;
             ColorManager.dynamicTagMap[tagLower] = ColorManager.tagPalette[index];
+            ColorManager.tagColorIndex++;
         }
 
         return ColorManager.dynamicTagMap[tagLower];
@@ -55,13 +57,13 @@ const ColorManager = {
 
     // Hàm tiện ích lấy mã HEX của màu chủ đạo (dùng cho Legend dots)
     getPrimaryColorForTag: (tag) => {
-        if (!tag) return ColorManager.tagPalette[5].text;
+        if (!tag) return ColorManager.tagPalette[10].text;
         const tagLower = tag.trim().toLowerCase();
 
         if (!ColorManager.dynamicTagMap[tagLower]) {
-            const hashVal = window.Hash ? window.Hash.hashString(tagLower) : tagLower.length;
-            const index = hashVal % ColorManager.tagPalette.length;
+            const index = ColorManager.tagColorIndex % ColorManager.tagPalette.length;
             ColorManager.dynamicTagMap[tagLower] = ColorManager.tagPalette[index];
+            ColorManager.tagColorIndex++;
         }
         return ColorManager.dynamicTagMap[tagLower].text;
     },
@@ -72,9 +74,9 @@ const ColorManager = {
         const nameLower = personName.trim().toLowerCase();
 
         if (!ColorManager.dynamicPersonMap[nameLower]) {
-            const hashVal = window.Hash ? window.Hash.hashString(nameLower) : nameLower.length;
-            const colorIndex = hashVal % ColorManager.personPalette.length;
+            const colorIndex = ColorManager.personColorIndex % ColorManager.personPalette.length;
             ColorManager.dynamicPersonMap[nameLower] = ColorManager.personPalette[colorIndex];
+            ColorManager.personColorIndex++;
         }
 
         return ColorManager.dynamicPersonMap[nameLower];
