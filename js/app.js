@@ -196,7 +196,35 @@ const App = {
             });
         });
         
-        // Fullscreen toggle
+        const scaleFullscreen = () => {
+            const container = document.querySelector('.calendar-body');
+            const mainContent = document.querySelector('.main-body-area');
+            
+            if (document.fullscreenElement && container && mainContent) {
+                // Reset to get natural height
+                container.style.transform = 'none';
+                
+                // Allow it to expand to natural height to measure
+                const weeks = container.querySelectorAll('.calendar-week');
+                let totalHeight = 40; // Approx header height
+                weeks.forEach(w => {
+                    totalHeight += w.scrollHeight;
+                });
+
+                const windowHeight = window.innerHeight;
+                
+                if (totalHeight > windowHeight) {
+                    const scale = windowHeight / totalHeight;
+                    // Use CSS zoom for proportional scaling of all elements (works in Chrome/Safari/Edge and modern Firefox)
+                    container.style.zoom = scale * 0.98; // 0.98 to give a tiny bit of breathing room
+                } else {
+                    container.style.zoom = 1;
+                }
+            } else if (container) {
+                container.style.zoom = 1;
+            }
+        };
+
         const btnFullscreen = document.getElementById('btn-fullscreen');
         if (btnFullscreen) {
             btnFullscreen.addEventListener('click', () => {
@@ -213,8 +241,16 @@ const App = {
         document.addEventListener('fullscreenchange', () => {
             if (document.fullscreenElement) {
                 document.body.classList.add('is-fullscreen-calendar');
+                setTimeout(scaleFullscreen, 100);
             } else {
                 document.body.classList.remove('is-fullscreen-calendar');
+                scaleFullscreen();
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (document.fullscreenElement) {
+                scaleFullscreen();
             }
         });
 
