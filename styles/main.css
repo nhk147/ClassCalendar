@@ -448,10 +448,7 @@ body.is-fullscreen-calendar .calendar-container {
 }
 
 body.is-fullscreen-calendar .calendar-week {
-    flex: 1;
-    height: auto !important;
-    min-height: 0 !important;
-    overflow: hidden;
+    /* Cho phép tự động co giãn theo nội dung, không fix cứng flex: 1 */
 }
 
 body.is-fullscreen-calendar .event-span {
