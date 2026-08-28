@@ -196,6 +196,28 @@ const App = {
             });
         });
         
+        // Fullscreen toggle
+        const btnFullscreen = document.getElementById('btn-fullscreen');
+        if (btnFullscreen) {
+            btnFullscreen.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(err => {
+                        console.log(`Error attempting to enable fullscreen mode: ${err.message}`);
+                    });
+                } else {
+                    document.exitFullscreen();
+                }
+            });
+        }
+
+        document.addEventListener('fullscreenchange', () => {
+            if (document.fullscreenElement) {
+                document.body.classList.add('is-fullscreen-calendar');
+            } else {
+                document.body.classList.remove('is-fullscreen-calendar');
+            }
+        });
+
         // Sync button
         const btnSync = document.getElementById('btn-sync');
         if (btnSync) {
