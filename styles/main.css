@@ -417,3 +417,49 @@ h1, h2, h3, h4 { font-weight: 600; color: var(--text-primary); }
     display: flex;
     flex-direction: column;
 }
+
+/* ==========================================
+   FULLSCREEN MODE
+   ========================================== */
+body.is-fullscreen-calendar .app-sidebar,
+body.is-fullscreen-calendar .top-header,
+body.is-fullscreen-calendar .dashboard-header-section,
+body.is-fullscreen-calendar .dashboard-stats {
+    display: none !important;
+}
+
+body.is-fullscreen-calendar .app-container {
+    grid-template-columns: 1fr;
+    padding: 0;
+}
+
+body.is-fullscreen-calendar .main-body-area {
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body.is-fullscreen-calendar .calendar-container {
+    border-radius: 0;
+    border: none;
+    height: 100vh;
+    flex: 1;
+}
+
+body.is-fullscreen-calendar .calendar-week {
+    flex: 1;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden;
+}
+
+body.is-fullscreen-calendar .event-span {
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    line-height: 1.2;
+}
+
+body.is-fullscreen-calendar .event-title {
+    font-size: 0.75rem;
+}
